@@ -1,1 +1,40 @@
+* {
+    font-family: "Figtree", serif;
+    scrollbar-width: thin;
+    scrollbar-color: #17a2b8 #e2e2e2;
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #e2e2e2;
+    border-radius: 1.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #17a2b8;
+    border-radius: 1.5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #117a8c;
+}
+
+body {
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 1.3rem;
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.3rem 0.4rem rgba(0, 0, 0, 0.1);
+    padding: 1.3rem;
+}
 
