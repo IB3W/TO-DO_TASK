@@ -255,3 +255,31 @@ h1 {
     background-color: #f44336;
     color: white;
 }
+
+.modal-content .cancel:hover {
+    background-color: #d32f2f;
+}
+
+.message-box {
+    padding: 0.6rem;
+    margin-top: 0.6rem;
+    border: 0.06rem solid;
+    border-radius: 0.3rem;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+    animation: fadeInOut 3s ease-in-out;
+}
+
+.message-box.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.message-box.info {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
