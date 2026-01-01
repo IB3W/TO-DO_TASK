@@ -85,3 +85,52 @@ function addTodo() {
     render();
     showMessage('Task added successfully 🎉', 'success');
 }
+function toggleTodo(index) {
+    const actualIndex = getActualIndex(index);
+    todos[actualIndex].done = !todos[actualIndex].done;
+    saveToLocalStorage();
+    render();
+}
+
+function openEdit(index) {
+    editIndex = getActualIndex(index);
+    editErrorMessage.textContent = '';
+    editTodoInput.value = todos[editIndex].text;
+    openModal(editModal);
+}
+
+function saveEdit() {
+    const text = editTodoInput.value.trim();
+
+    if (text.length < 5) {
+        editErrorMessage.textContent = '⛔ Task must be at least 5 characters long';
+        return;
+    }
+
+    todos[editIndex].text = text;
+    saveToLocalStorage();
+    closeModal(editModal);
+    render();
+    showMessage('Task has been edited.', 'success');
+}
+
+function deleteTodo(index) {
+    deleteIndex = getActualIndex(index);
+    openModal(deleteModal);
+}
+
+function confirmDelete() {
+    todos.splice(deleteIndex, 1);
+    saveToLocalStorage();
+    closeModal(deleteModal);
+    render();
+    showMessage('Task has been deleted.', 'success');
+}
+
+function deleteAllTasks() {
+    if (todos.length === 0) {
+        showMessage('No tasks to delete.', 'info');
+        return;
+    }
+    openModal(deleteAllModal);
+}
