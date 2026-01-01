@@ -32,3 +32,17 @@ function filterTodos(filter) {
     
     render();
 }
+
+function render() {
+    let filtered = todos;
+
+    if (currentFilter === 'done') {
+        filtered = todos.filter(todo => todo.done);
+    } else if (currentFilter === 'todo') {
+        filtered = todos.filter(todo => !todo.done);
+    }
+
+    if (filtered.length === 0) {
+        todoList.innerHTML = 'No Tasks 📝';
+        return;
+    }
