@@ -86,3 +86,45 @@ function render() {
         todoList.appendChild(li);
     });
 }
+function getActualIndex(filteredIndex) {
+    let filtered = todos;
+    if (currentFilter === 'done') {
+        filtered = todos.filter(todo => todo.done);
+    } else if (currentFilter === 'todo') {
+        filtered = todos.filter(todo => !todo.done);
+    }
+    return todos.indexOf(filtered[filteredIndex]);
+}
+
+function openModal(modal) {
+    modal.style.display = 'flex';
+}
+
+function closeModal(modal) {
+    modal.style.display = 'none';
+}
+
+function showMessage(text, type) {
+    const container = document.querySelector('.container');
+    const existing = container.querySelector('.message-box');
+    
+    if (existing) {
+        container.removeChild(existing);
+    }
+
+    const box = document.createElement('div');
+    box.className = `message-box ${type}`;
+    box.textContent = text;
+    
+    container.appendChild(box);
+
+    setTimeout(() => {
+        if (box.parentNode) {
+            container.removeChild(box);
+        }
+    }, 3000);
+}
+
+function saveToLocalStorage() {
+    localStorage.setItem('todos', JSON.stringify(todos));
+}
