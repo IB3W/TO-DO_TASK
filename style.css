@@ -158,3 +158,34 @@ h1 {
     cursor: pointer;
     font-size: 1rem;
 }
+.todo-actions .toggle .fa-square-check {
+    color: #00ff0d;
+}
+
+.todo-actions .edit {
+    color: #ffa000;
+}
+
+.todo-actions .delete {
+    color: #f44336;
+}
+
+.footer-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-buttons button {
+    flex: 1;
+    margin: 0 0.3rem;
+    padding: 0.6rem;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.footer-buttons button:hover {
+    background-color: #d32f2f;
+}
