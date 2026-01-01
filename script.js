@@ -14,3 +14,21 @@ function deleteDoneTasks() {
     }
     openModal(deleteDoneModal);
 }
+function confirmDeleteDone() {
+    todos = todos.filter(todo => !todo.done);
+    saveToLocalStorage();
+    closeModal(deleteDoneModal);
+    render();
+    showMessage('All done tasks have been deleted.', 'success');
+}
+
+function filterTodos(filter) {
+    currentFilter = filter;
+    
+    filterButtons.forEach(btn => btn.classList.remove('active'));
+    
+    const activeButton = document.querySelector(`[data-filter="${filter}"]`);
+    activeButton.classList.add('active');
+    
+    render();
+}
