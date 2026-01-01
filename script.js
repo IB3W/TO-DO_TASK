@@ -57,3 +57,31 @@ confirmDeleteDoneBtn.addEventListener('click', confirmDeleteDone);
 cancelDeleteDoneBtn.addEventListener('click', () => closeModal(deleteDoneModal));
 
 document.addEventListener('DOMContentLoaded', render);
+
+function addTodo() {
+    const text = newTodoInput.value.trim();
+
+    if (text === '') {
+        errorMessage.textContent = '⛔ Task cannot be empty';
+        return;
+    }
+    if (text.length < 5) {
+        errorMessage.textContent = '⛔ Task must be at least 5 characters long';
+        return;
+    }
+    if (text[0] >= '0' && text[0] <= '9') {
+        errorMessage.textContent = '⛔ Task cannot start with a number';
+        return;
+    }
+    if (!/^[a-zA-Z0-9\s.,'!?-]+$/.test(text)) {
+        errorMessage.textContent = '⛔ Task must contain only English characters';
+        return;
+    }
+
+    errorMessage.textContent = '';
+    todos.push({ text: text, done: false });
+    saveToLocalStorage();
+    newTodoInput.value = '';
+    render();
+    showMessage('Task added successfully 🎉', 'success');
+}
