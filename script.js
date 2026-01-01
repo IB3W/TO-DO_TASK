@@ -29,3 +29,31 @@ const deleteDoneModal = document.getElementById('deleteDoneModal');
 const confirmDeleteDoneBtn = document.getElementById('confirmDeleteDoneBtn');
 const cancelDeleteDoneBtn = document.getElementById('cancelDeleteDoneBtn');
 
+addBtn.addEventListener('click', addTodo);
+newTodoInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') addTodo();
+});
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+        const filter = e.target.getAttribute('data-filter');
+        filterTodos(filter);
+    });
+});
+
+deleteDoneBtn.addEventListener('click', deleteDoneTasks);
+deleteAllBtn.addEventListener('click', deleteAllTasks);
+
+saveEditBtn.addEventListener('click', saveEdit);
+cancelEditBtn.addEventListener('click', () => closeModal(editModal));
+
+confirmDeleteBtn.addEventListener('click', confirmDelete);
+cancelDeleteBtn.addEventListener('click', () => closeModal(deleteModal));
+
+confirmDeleteAllBtn.addEventListener('click', confirmDeleteAll);
+cancelDeleteAllBtn.addEventListener('click', () => closeModal(deleteAllModal));
+
+confirmDeleteDoneBtn.addEventListener('click', confirmDeleteDone);
+cancelDeleteDoneBtn.addEventListener('click', () => closeModal(deleteDoneModal));
+
+document.addEventListener('DOMContentLoaded', render);
