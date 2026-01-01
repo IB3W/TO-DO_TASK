@@ -283,3 +283,33 @@ h1 {
     border-color: #f5c6cb;
 }
 
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(-0.6rem);
+    }
+    10%, 90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-0.6rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 95%;
+        padding: 0.6rem;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+
+    .filter-buttons button {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
