@@ -227,3 +227,31 @@ h1 {
     display: flex;
     justify-content: space-between;
 }
+.modal-content button {
+    flex: 1;
+    margin: 0 0.3rem;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.modal-content .save {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.modal-content .save:hover {
+    background-color: #117a8c;
+}
+
+.modal-content .confirm {
+    background-color: #cccccc;
+    color: black;
+}
+
+.modal-content .cancel {
+    background-color: #f44336;
+    color: white;
+}
