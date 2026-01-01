@@ -46,3 +46,43 @@ function render() {
         todoList.innerHTML = 'No Tasks 📝';
         return;
     }
+
+    todoList.innerHTML = '';
+    
+    filtered.forEach((todo, index) => {
+        const li = document.createElement('li');
+        li.className = `todo-item ${todo.done ? 'done' : ''}`;
+        
+        const span = document.createElement('span');
+        span.textContent = todo.text;
+        
+        const actionsDiv = document.createElement('div');
+        actionsDiv.className = 'todo-actions';
+        
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'toggle';
+        toggleBtn.innerHTML = todo.done ? 
+            '<i class="fa-regular fa-square-check"></i>' : 
+            '<i class="fa-regular fa-square"></i>';
+        toggleBtn.addEventListener('click', () => toggleTodo(index));
+        
+        const editBtn = document.createElement('button');
+        editBtn.className = 'edit';
+        editBtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
+        editBtn.addEventListener('click', () => openEdit(index));
+        
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'delete';
+        deleteBtn.innerHTML = '<i class="fa-solid fa-trash"></i>';
+        deleteBtn.addEventListener('click', () => deleteTodo(index));
+        
+        actionsDiv.appendChild(toggleBtn);
+        actionsDiv.appendChild(editBtn);
+        actionsDiv.appendChild(deleteBtn);
+        
+        li.appendChild(span);
+        li.appendChild(actionsDiv);
+        
+        todoList.appendChild(li);
+    });
+}
